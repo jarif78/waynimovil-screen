@@ -1,13 +1,6 @@
 <template>
   <div>
-    <div
-      id="header"
-      class="sticky top-0 z-40 bg-white shadow-header flex items-center justify-around h-14 md:h-16"
-    >
-      <img :src="imgArrowBack" alt="back" role="button" />
-      <img :src="imgLogo" alt="logo" role="button" />
-      <img :src="imgExit" alt="exit" role="button" />
-    </div>
+    <Header />
 
     <!--CONTENT-->
     <div class="w-84 md:w-100 mx-auto px-3 text-black">
@@ -64,35 +57,25 @@
         </div>
       </div>
 
-      <div class="bg-gray-990 text-white mt-18 p-3 rounded-t-lg text-center relative">
-        <p class="text-xs font-bold">
-          Nos ayudás constestando estas preguntas:
-          <br />¿Cómo te resultó solicitar tu préstamo?
-        </p>
-
-        <div class="flex items-center justify-center">
-          <button class="btn-medium-fill bg-green-800 mt-3">Responder</button>
-        </div>
-      </div>
+      <PopupPoll />
     </div>
   </div>
 </template>
 
 <script>
-import imgArrowBack from "../assets/images/arrow-back.svg";
-import imgLogo from "../assets/images/wayni-logo-two-colors.svg";
-import imgExit from "../assets/images/exit.svg";
-import imgOK from "../assets/images/ok.svg";
+import Header from "../components/Header";
+import PopupPoll from "../components/PopupPoll";
+
 import imgNext from "../assets/images/arrow-simple-next.svg";
 import imgWarning from "../assets/images/warning.svg";
 
 export default {
+  components: {
+    Header,
+    PopupPoll,
+  },
   data() {
     return {
-      imgArrowBack,
-      imgLogo,
-      imgExit,
-      imgOK,
       imgNext,
       imgWarning,
     };
