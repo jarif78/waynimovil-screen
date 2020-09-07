@@ -10,7 +10,7 @@
     </div>
 
     <!--CONTENT-->
-    <div class="px-3 text-black">
+    <div class="w-84 md:w-100 mx-auto px-3 text-black">
       <div class="bg-white p-3 border border-gray-500 rounded-lg mt-8">
         <p class="text-gray-900 text-2xs font-bold">ESTADO DE TU PRÉSTAMO:</p>
         <table class="table-auto mt-3">
