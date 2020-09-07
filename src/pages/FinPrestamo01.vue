@@ -1,13 +1,6 @@
 <template>
   <div>
-    <div
-      id="header"
-      class="sticky top-0 z-40 bg-white shadow-header flex items-center justify-around h-14 md:h-16"
-    >
-      <img :src="imgArrowBack" alt="back" role="button" />
-      <img :src="imgLogo" alt="logo" role="button" />
-      <img :src="imgExit" alt="exit" role="button" />
-    </div>
+    <Header />
 
     <!--CONTENT-->
     <div class="w-84 md:w-100 mx-auto px-3 text-black">
@@ -117,6 +110,8 @@
 </template>
 
 <script>
+import Header from "../components/Header";
+
 import imgArrowBack from "../assets/images/arrow-back.svg";
 import imgLogo from "../assets/images/wayni-logo-two-colors.svg";
 import imgExit from "../assets/images/exit.svg";
@@ -124,6 +119,9 @@ import imgOK from "../assets/images/ok.svg";
 import imgNext from "../assets/images/arrow-simple-next.svg";
 
 export default {
+  components: {
+    Header,
+  },
   data() {
     return {
       imgArrowBack,
