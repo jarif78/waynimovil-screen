@@ -5,15 +5,13 @@
     </div>
     <div class="container mx-auto text-center">
       <h1 class="text-xl font-bold">Nuevas pantallas</h1>
-
+      <br />
+      <br />
       <div>
-        <router-link to="/fin-prestamo-01">Fin préstamo step 01</router-link>
+        <router-link to="/solicitud-completada">Solicitud Completada</router-link>
         <br />
-        <router-link to="/fin-prestamo-02">Fin préstamo step 02</router-link>
         <br />
-        <router-link to="/fin-prestamo-03">Fin préstamo step 03</router-link>
-        <br />
-        <router-link to="/fin-prestamo-04">Fin préstamo no aprobado</router-link>
+        <router-link to="/solicitud-cancelada">Solicitud Cancelada</router-link>
       </div>
 
       <div class="text-center">

@@ -8,10 +8,9 @@ import Step05 from './pages/Step05.vue';
 import Step06 from './pages/Step06.vue';
 import Step07 from './pages/Step07.vue';
 import Step08 from './pages/Step08.vue';
-import FinPrestamo01 from './pages/FinPrestamo01.vue';
-import FinPrestamo02 from './pages/FinPrestamo02.vue';
-import FinPrestamo03 from './pages/FinPrestamo03.vue';
-import FinPrestamo04 from './pages/FinPrestamo04.vue';
+
+import SolicitudCompletada from './pages/SolicitudCompletada.vue';
+import SolicitudCancelada from './pages/SolicitudCancelada.vue';
 
 const routes = [{
         path: '/',
@@ -50,20 +49,12 @@ const routes = [{
         component: Step08
     },
     {
-        path: '/fin-prestamo-01',
-        component: FinPrestamo01
+        path: '/solicitud-completada',
+        component: SolicitudCompletada
     },
     {
-        path: '/fin-prestamo-02',
-        component: FinPrestamo02
-    },
-    {
-        path: '/fin-prestamo-03',
-        component: FinPrestamo03
-    },
-    {
-        path: '/fin-prestamo-04',
-        component: FinPrestamo04
+        path: '/solicitud-cancelada',
+        component: SolicitudCancelada
     },
 ];
 
