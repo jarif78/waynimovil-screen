@@ -106,10 +106,12 @@
       <button
         v-if="showButtons"
         class="btn-big-outline-full w-full"
+        @click="clickComprobante"
       >Descargar comprobante transferencia</button>
       <button
         v-if="showButtons"
         class="btn-big-outline-full w-full mt-4 mb-4"
+        @click="clickDocumentacion"
       >Descargar documentación</button>
 
       <modalTerminos v-bind:toggle="toggleModal" v-if="toggleModal" />
@@ -136,12 +138,12 @@ export default {
         next: imgNext,
       },
       data: {
-        montoPrestamo: 10000,
+        montoPrestamo: new Intl.NumberFormat("de-DE").format(10000),
         cuotas: 8,
-        montoCuota: 2040,
+        montoCuota: new Intl.NumberFormat("de-DE").format(2040),
         tna: 58,
         cft: 329,
-        montoDevolver: 16320,
+        montoDevolver: new Intl.NumberFormat("de-DE").format(16320),
         banco: "Banco Galicia",
         cbu: "007094932840284757345",
         fechaInicial: "1 de mayo",
@@ -152,6 +154,14 @@ export default {
       isTransferred: false,
       showButtons: true,
     };
+  },
+  methods: {
+    clickComprobante: () => {
+      alert("Descarga de comprobante...");
+    },
+    clickDocumentacion: () => {
+      alert("Descarga de documentación...");
+    },
   },
 };
 </script>
