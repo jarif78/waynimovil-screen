@@ -19,6 +19,9 @@
         <br />
         <br />
         <router-link to="/propuesta-comercial">Propuesta Comercial</router-link>
+        <br />
+        <br />
+        <router-link to="/ingreso">Ingreso</router-link>
       </div>
     </div>
   </div>
