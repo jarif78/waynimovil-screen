@@ -16,15 +16,24 @@
           <tbody>
             <tr>
               <td class>
-                <hr v-if="isChecking" class="border-solid border-2 rounded-md border-green-800" />
+                <hr
+                  v-if="isChecking"
+                  class="border-solid border-2 rounded-md border-green-800 animate-pulse"
+                />
                 <hr v-else class="border-solid border-2 rounded-md border-gray-500" />
               </td>
               <td class>
-                <hr v-if="isPrepared" class="border-solid border-2 rounded-md border-green-800" />
+                <hr
+                  v-if="isPrepared"
+                  class="border-solid border-2 rounded-md border-green-800 animate-pulse"
+                />
                 <hr v-else class="border-solid border-2 rounded-md border-gray-500" />
               </td>
               <td class>
-                <hr v-if="isTransferred" class="border-solid border-2 rounded-md border-green-800" />
+                <hr
+                  v-if="isTransferred"
+                  class="border-solid border-2 rounded-md border-green-800 animate-pulse"
+                />
                 <hr v-else class="border-solid border-2 rounded-md border-gray-500" />
               </td>
             </tr>
