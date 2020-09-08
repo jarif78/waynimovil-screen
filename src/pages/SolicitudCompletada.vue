@@ -3,7 +3,7 @@
     <Header />
 
     <div class="w-84 md:w-100 mx-auto text-black">
-      <div>
+      <div v-if="!isPrepared && !isTransferred">
         <div class="flex justify-center">
           <img class="bock mt-8" :src="img.ok" alt="ok" />
         </div>
@@ -80,7 +80,7 @@
           <span class="text-xs font-bold">${{ data.montoDevolver }}</span>
         </div>
 
-        <div class="bg-blue-500 rounded text-center mt-3 py-3px">
+        <div class="bg-blue-500 rounded mt-3 py-3px flex justify-center items-center">
           <span class="text-white text-xs font-bold">👌 Comenzá a pagar el {{ data.fechaInicial }}</span>
         </div>
 
@@ -113,12 +113,12 @@
       </div>
 
       <button
-        v-if="showButtons"
+        v-if="isTransferred"
         class="btn-big-outline-full w-full"
         @click="clickComprobante"
       >Descargar comprobante transferencia</button>
       <button
-        v-if="showButtons"
+        v-if="isTransferred"
         class="btn-big-outline-full w-full mt-4 mb-4"
         @click="clickDocumentacion"
       >Descargar documentación</button>
@@ -142,11 +142,13 @@ export default {
   },
   data() {
     return {
+      toggleModal: false,
       img: {
         ok: imgOK,
         next: imgNext,
       },
       data: {
+        nombre: 'Yanel',
         montoPrestamo: new Intl.NumberFormat("de-DE").format(10000),
         cuotas: 8,
         montoCuota: new Intl.NumberFormat("de-DE").format(2040),
@@ -157,11 +159,10 @@ export default {
         cbu: "007094932840284757345",
         fechaInicial: "1 de mayo",
       },
-      toggleModal: false,
       isChecking: true,
-      isPrepared: true,
+      isPrepared: false,
       isTransferred: false,
-      showButtons: true,
+      isCanceled: false,
     };
   },
   methods: {
