@@ -130,17 +130,15 @@
 
         <hr class="mt-3" />
 
-        <div class="mt-4 mb-2 flex items-center justify-between">
+        <div
+          class="mt-4 mb-2 flex items-center justify-between"
+          role="button"
+          @click="toggleModal = !toggleModal"
+        >
           <span class="text-purple-900 text-xs font-bold"
             >Ver téminos y condiciones</span
           >
-          <img
-            class="h-5"
-            :src="img.next"
-            alt="next"
-            role="button"
-            @click="toggleModal = !toggleModal"
-          />
+          <img class="h-5" :src="img.next" alt="next" />
         </div>
       </div>
 
