@@ -1,6 +1,5 @@
 <template>
   <div
-    id="header"
     class="sticky top-0 z-40 bg-white shadow-header flex items-center justify-around h-14 md:h-16"
   >
     <img :src="imgArrowBack" alt="back" role="button" @click="clickBack" />
@@ -15,7 +14,6 @@ import imgLogo from "../assets/images/wayni-logo-two-colors.svg";
 import imgExit from "../assets/images/exit.svg";
 
 export default {
-  el: "#header",
   data() {
     return {
       imgArrowBack,

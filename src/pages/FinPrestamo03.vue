@@ -91,22 +91,18 @@
       <button class="btn-big-outline-full w-full">Descargar comprobante transferencia</button>
 
       <button class="btn-big-outline-full w-full mt-4">Descargar documentación</button>
-
-      <PopupPoll />
     </div>
   </div>
 </template>
 
 <script>
 import Header from "../components/Header";
-import PopupPoll from "../components/PopupPoll";
 
 import imgNext from "../assets/images/arrow-simple-next.svg";
 
 export default {
   components: {
     Header,
-    PopupPoll,
   },
   data() {
     return {

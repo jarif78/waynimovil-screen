@@ -2,10 +2,10 @@
   <div>
     <Header />
 
-    <div class="w-84 md:w-100 mx-auto px-3 text-black">
+    <div class="w-84 md:w-100 mx-auto text-black">
       <div>
         <div class="flex justify-center">
-          <img class="bock mt-8" :src="imgOK" alt="ok" />
+          <img class="bock mt-8" :src="img.ok" alt="ok" />
         </div>
         <p class="block mt-4 text-xl font-bold text-center">¡Solicitud de préstamo completada!</p>
       </div>
@@ -16,13 +16,16 @@
           <tbody>
             <tr>
               <td class>
-                <hr class="border-solid border-2 rounded-md border-green-800" />
+                <hr v-if="isChecking" class="border-solid border-2 rounded-md border-green-800" />
+                <hr v-else class="border-solid border-2 rounded-md border-gray-500" />
               </td>
               <td class>
-                <hr class="border-solid border-2 rounded-md border-gray-500" />
+                <hr v-if="isPrepared" class="border-solid border-2 rounded-md border-green-800" />
+                <hr v-else class="border-solid border-2 rounded-md border-gray-500" />
               </td>
               <td class>
-                <hr class="border-solid border-2 rounded-md border-gray-500" />
+                <hr v-if="isTransferred" class="border-solid border-2 rounded-md border-green-800" />
+                <hr v-else class="border-solid border-2 rounded-md border-gray-500" />
               </td>
             </tr>
             <tr>
@@ -40,42 +43,42 @@
       <div class="bg-white p-3 border border-gray-500 rounded-lg my-4">
         <div class="flex items-center justify-between">
           <span class="text-xs font-bold text-blue-900">PRÉSTAMO SOLICITADO:</span>
-          <span class="text-xs font-bold text-blue-900">$10.000</span>
+          <span class="text-xs font-bold text-blue-900">${{ data.montoPrestamo }}</span>
         </div>
         <hr class="mt-6px border-gray-500" />
         <div class="flex items-center justify-between mt-8px">
           <span class="text-xs font-medium">Plazo de devolución</span>
-          <span class="text-xs font-bold">8 meses</span>
+          <span class="text-xs font-bold">{{ data.cuotas }} meses</span>
         </div>
         <hr class="mt-6px border-gray-500" />
         <div class="flex items-center justify-between mt-8px">
           <span class="text-xs font-medium">Cuotas</span>
-          <span class="text-xs font-bold">8 de $2.040</span>
+          <span class="text-xs font-bold">{{ data.cuotas }} de ${{ data.montoCuota }}</span>
         </div>
         <hr class="mt-6px border-gray-500" />
         <div class="flex items-center justify-between mt-8px">
           <span class="text-xs font-medium">Tasa Nominal Anual (TNA)</span>
-          <span class="text-xs font-bold">58%</span>
+          <span class="text-xs font-bold">{{ data.tna }}%</span>
         </div>
         <hr class="mt-6px border-gray-500" />
         <div class="flex items-center justify-between mt-8px">
-          <span class="text-xs font-medium">Costo Financiero Total (DFT)*</span>
-          <span class="text-xs font-bold">329%</span>
+          <span class="text-xs font-medium">Costo Financiero Total (CFT)*</span>
+          <span class="text-xs font-bold">{{ data.cft }}%</span>
         </div>
         <hr class="mt-6px border-gray-500" />
         <div class="flex items-center justify-between mt-8px">
           <span class="text-xs font-medium">Total a devolver</span>
-          <span class="text-xs font-bold">$16.320</span>
+          <span class="text-xs font-bold">${{ data.montoDevolver }}</span>
         </div>
 
-        <div class="bg-blue-500 rounded text-center mt-3 py-1">
-          <span class="text-white text-xs font-bold">👌 Comenzá a pagar el 1 de Mayo</span>
+        <div class="bg-blue-500 rounded text-center mt-3 py-3px">
+          <span class="text-white text-xs font-bold">👌 Comenzá a pagar el {{ data.fechaInicial }}</span>
         </div>
 
         <div class="mt-3">
           <span class="block text-xs font-bold">El dinero se depositará en la cuenta:</span>
-          <span class="block text-xs font-medium">Banco Galicia</span>
-          <span class="block text-xs font-medium">CBU 007094932840284757345</span>
+          <span class="block text-xs font-medium">{{ data.banco }}</span>
+          <span class="block text-xs font-medium">CBU {{ data.cbu }}</span>
         </div>
 
         <hr class="mt-3" />
@@ -83,44 +86,71 @@
         <div class="mt-3">
           <span class="block text-xs font-bold">Método de pago:</span>
           <span class="block text-xs font-medium">Débito automático</span>
-          <span class="block text-xs font-medium">CBU 007094932840284757345</span>
+          <span class="block text-xs font-medium">CBU {{ data.cbu }}</span>
         </div>
 
         <hr class="mt-3" />
 
         <div class="mt-4 mb-2 flex items-center justify-between">
           <span class="text-purple-900 text-xs font-bold">Ver téminos y condiciones</span>
-          <img class="h-5" :src="imgNext" alt="next" />
+          <img
+            class="h-5"
+            :src="img.next"
+            alt="next"
+            role="button"
+            @click="toggleModal = !toggleModal"
+          />
         </div>
       </div>
 
-      <PopupPoll />
+      <button
+        v-if="showButtons"
+        class="btn-big-outline-full w-full"
+      >Descargar comprobante transferencia</button>
+      <button
+        v-if="showButtons"
+        class="btn-big-outline-full w-full mt-4 mb-4"
+      >Descargar documentación</button>
+
+      <modalTerminos v-bind:toggle="toggleModal" v-if="toggleModal" />
     </div>
   </div>
 </template>
 
 <script>
 import Header from "../components/Header";
-import PopupPoll from "../components/PopupPoll";
+import modalTerminos from "../components/modals/Terminos";
 
-import imgArrowBack from "../assets/images/arrow-back.svg";
-import imgLogo from "../assets/images/wayni-logo-two-colors.svg";
-import imgExit from "../assets/images/exit.svg";
 import imgOK from "../assets/images/ok.svg";
 import imgNext from "../assets/images/arrow-simple-next.svg";
 
 export default {
   components: {
     Header,
-    PopupPoll,
+    modalTerminos,
   },
   data() {
     return {
-      imgArrowBack,
-      imgLogo,
-      imgExit,
-      imgOK,
-      imgNext,
+      img: {
+        ok: imgOK,
+        next: imgNext,
+      },
+      data: {
+        montoPrestamo: 10000,
+        cuotas: 8,
+        montoCuota: 2040,
+        tna: 58,
+        cft: 329,
+        montoDevolver: 16320,
+        banco: "Banco Galicia",
+        cbu: "007094932840284757345",
+        fechaInicial: "1 de mayo",
+      },
+      toggleModal: false,
+      isChecking: true,
+      isPrepared: true,
+      isTransferred: false,
+      showButtons: true,
     };
   },
 };

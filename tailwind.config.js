@@ -127,6 +127,7 @@ module.exports = {
         "80neg": "-20rem", //-> 320px
         px: "1px",
         "2px": "2px",
+        "3px": "3px",
         "4px": "4px",
         "5px": "5px",
         "6px": "6px",

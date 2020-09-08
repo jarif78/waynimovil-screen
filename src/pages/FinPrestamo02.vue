@@ -87,22 +87,18 @@
           <img class="h-5" :src="imgNext" alt="next" />
         </div>
       </div>
-
-      <PopupPoll />
     </div>
   </div>
 </template>
 
 <script>
 import Header from "../components/Header";
-import PopupPoll from "../components/PopupPoll";
 
 import imgNext from "../assets/images/arrow-simple-next.svg";
 
 export default {
   components: {
     Header,
-    PopupPoll,
   },
   data() {
     return {

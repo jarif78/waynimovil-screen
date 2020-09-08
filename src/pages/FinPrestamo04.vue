@@ -56,15 +56,12 @@
           <span class="text-black text-xs font-bold">PRÉSTAMO NO APROBADO</span>
         </div>
       </div>
-
-      <PopupPoll />
     </div>
   </div>
 </template>
 
 <script>
 import Header from "../components/Header";
-import PopupPoll from "../components/PopupPoll";
 
 import imgNext from "../assets/images/arrow-simple-next.svg";
 import imgWarning from "../assets/images/warning.svg";
@@ -72,7 +69,6 @@ import imgWarning from "../assets/images/warning.svg";
 export default {
   components: {
     Header,
-    PopupPoll,
   },
   data() {
     return {
