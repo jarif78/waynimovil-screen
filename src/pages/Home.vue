@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div
-      class="flex justify-center items-center bg-green-800 h-10 text-white font-bold"
-    >
+    <div class="flex justify-center items-center bg-green-800 h-10 text-white font-bold">
       <p>WAYNIMOVIL</p>
     </div>
     <div class="container mx-auto text-center">
@@ -10,9 +8,7 @@
       <br />
       <br />
       <div>
-        <router-link to="/solicitud-completada"
-          >Solicitud Completada</router-link
-        >
+        <router-link to="/solicitud-completada">Solicitud Completada</router-link>
         <br />
         <br />
         <router-link to="/solicitud-cancelada">Solicitud Cancelada</router-link>
@@ -22,6 +18,15 @@
         <br />
         <br />
         <router-link to="/ingreso">Ingreso</router-link>
+        <br />
+        <br />
+        <router-link to="/contrasenia">Contraseña</router-link>
+        <br />
+        <br />
+        <router-link to="/solicitud-paso-1">Solicitud - Paso 1</router-link>
+        <br />
+        <br />
+        <router-link to="/solicitud-paso-3">Solicitud - Paso 3</router-link>
       </div>
     </div>
   </div>
