@@ -8,6 +8,8 @@ import Ingreso from './pages/Ingreso.vue';
 import Contrasenia from './pages/Contrasenia.vue';
 import SolicitudPaso1 from './pages/SolicitudPaso1.vue';
 import SolicitudPaso3 from './pages/SolicitudPaso3.vue';
+import SolicitudPaso4 from './pages/SolicitudPaso4.vue';
+import SolicitudPaso5 from './pages/SolicitudPaso5.vue';
 
 const routes = [{
         path: '/',
@@ -40,6 +42,14 @@ const routes = [{
     {
         path: '/solicitud-paso-3',
         component: SolicitudPaso3
+    },
+    {
+        path: '/solicitud-paso-4',
+        component: SolicitudPaso4
+    },
+    {
+        path: '/solicitud-paso-5',
+        component: SolicitudPaso5
     },
 ];
 

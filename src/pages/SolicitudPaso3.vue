@@ -23,7 +23,7 @@
         <span class="text-purple-900 text-xs font-bold">Depositar en otra cuenta</span>
       </div>
 
-      <div class="bg-white p-3 border border-gray-500 rounded-lg mt-6">
+      <div class="bg-white px-3 py-5px border border-gray-500 rounded-lg mt-6">
         <p class="text-xs font-medium text-gray-900">Código de seguridad</p>
         <p class="text-base font-medium">4567</p>
       </div>

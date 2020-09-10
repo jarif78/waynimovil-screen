@@ -27,6 +27,12 @@
         <br />
         <br />
         <router-link to="/solicitud-paso-3">Solicitud - Paso 3</router-link>
+        <br />
+        <br />
+        <router-link to="/solicitud-paso-4">Solicitud - Paso 4</router-link>
+        <br />
+        <br />
+        <router-link to="/solicitud-paso-5">Solicitud - Paso 5 (fin)</router-link>
       </div>
     </div>
   </div>
